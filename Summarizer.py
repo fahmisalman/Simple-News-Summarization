@@ -1,5 +1,7 @@
-from nltk.corpus import stopwords
-import re
+from Preprocessing import *
+
+
+__author__ = "Fahmi Salman Nurfikri"
 
 
 def sentence_split(paragraph):
@@ -10,25 +12,6 @@ def sentence_split(paragraph):
             data += (list(filter(None, paragraph[j:i].rsplit('\n'))))
             j = i + 1
     return data
-
-
-def casefolding(sentence):
-    sentence = sentence.lower()
-    sentence = re.sub(r'[^a-z]', ' ', re.sub("’", '', sentence))
-    return sentence
-
-
-def tokenization(sentence):
-    return sentence.split()
-
-
-def stopword_removal(token):
-    stopWords = set(stopwords.words('english'))
-    wordsFiltered = []
-    for w in token:
-        if w not in stopWords:
-            wordsFiltered.append(w)
-    return wordsFiltered
 
 
 def word_freq(data):
@@ -60,7 +43,7 @@ def summarizer(paragraph):
             temp += wordfreq[word]
         ranking.append(temp)
 
-    sortList = sorted(range(len(ranking)),key=ranking.__getitem__, reverse=True)
+    sortList = sorted(range(len(ranking)), key=ranking.__getitem__, reverse=True)
     n = 3
     sentence = ''
     for i in range(n):
