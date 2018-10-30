@@ -50,8 +50,6 @@ def summarizer(paragraph):
         sentence += '{}. '.format(sentence_list[sortList[i]])
     return sentence
 
-    '''https://www.analyticsvidhya.com/blog/2015/10/beginner-guide-web-scraping-beautiful-soup-python/'''
-
 
 if __name__ == '__main__':
 
