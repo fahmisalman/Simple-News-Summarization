@@ -1,5 +1,9 @@
-from nltk.corpus import stopwords
+from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 import re
+
+
+factory = StemmerFactory()
+stemmer = factory.create_stemmer()
 
 
 def casefolding(sentence):
@@ -13,9 +17,13 @@ def tokenization(sentence):
 
 
 def stopword_removal(token):
-    stopWords = set(stopwords.words('english'))
-    wordsFiltered = []
-    for w in token:
-        if w not in stopWords:
-            wordsFiltered.append(w)
-    return wordsFiltered
+    stopword = [line.rstrip('\n\r') for line in open('stopwords.txt')]
+    temp = []
+    for i in range(len(token)):
+        if token[i] not in stopword:
+            temp.append(token[i])
+    return temp
+
+
+def stemming(self, token):
+    return self.stemmer.stem(token)

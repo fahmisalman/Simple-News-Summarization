@@ -51,6 +51,10 @@ def summarizer(paragraph):
     return sentence
 
 
+def scrapper():
+    print()
+
+
 if __name__ == '__main__':
 
     paragraph = '''Penonton Kejuaraan Dunia Motocross MXGP Disarankan Beli Tiket Online
