@@ -25,5 +25,7 @@ def stopword_removal(token):
     return temp
 
 
-def stemming(self, token):
-    return self.stemmer.stem(token)
+def stemming(tokens):
+    for token in tokens:
+        token = stemmer.stem(token)
+    return tokens
