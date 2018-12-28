@@ -33,7 +33,7 @@ def summarizer(paragraph):
     data = []
     for i in range(len(sentence_list)):
         data.append(stemming(stopword_removal(tokenization(casefolding(sentence_list[i])))))
-    data = (list(filter(None, sentence_list)))
+    data = (list(filter(None, data)))
 
     wordfreq = word_freq(data)
 
