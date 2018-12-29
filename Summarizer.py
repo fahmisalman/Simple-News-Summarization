@@ -50,10 +50,3 @@ def summarizer(paragraph):
     for i in range(n):
         sentence += '{}. '.format(sentence_list[sortList[i]])
     return sentence
-
-
-if __name__ == '__main__':
-
-    url = 'https://news.detik.com/internasional/d-4281502/pakistan-bebaskan-wanita-yang-divonis-mati-atas-penistaan-agama'
-    paragraph = get_article(url)
-    print(summarizer(get_article(url)))
