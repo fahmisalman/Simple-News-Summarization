@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-import Summarizer as summarize
+from Summarizer import summarizer
 
 
 app = Flask(__name__)
@@ -13,7 +13,7 @@ def summary():
     data = request.get_json(force=True)
     data_pred = data['data']
 
-    pred_text = summarize.summarizer(data_pred)
+    pred_text = summarizer(data_pred)
     output = {'prediction': pred_text}
 
     return jsonify(output)

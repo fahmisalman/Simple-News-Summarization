@@ -1,5 +1,4 @@
 from Preprocessing import *
-from Web_scraper import *
 
 
 __author__ = "Fahmi Salman Nurfikri"
