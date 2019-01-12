@@ -1,4 +1,4 @@
-from Preprocessing import *
+from Model.Preprocessing import Preprocessing
 
 
 __author__ = "Fahmi Salman Nurfikri"
@@ -26,12 +26,14 @@ def word_freq(data):
     return res
 
 
-def summarizer(paragraph):
+def fit(paragraph):
+
+    pre = Preprocessing()
 
     sentence_list = sentence_split(paragraph)
     data = []
     for i in range(len(sentence_list)):
-        data.append(stemming(stopword_removal(tokenization(casefolding(sentence_list[i])))))
+        data.append(pre.stemming(pre.stopword_removal(pre.tokenization(pre.casefolding(sentence_list[i])))))
     data = (list(filter(None, data)))
 
     wordfreq = word_freq(data)
@@ -43,9 +45,9 @@ def summarizer(paragraph):
             temp += wordfreq[word]
         ranking.append(temp)
 
-    sortList = sorted(range(len(ranking)), key=ranking.__getitem__, reverse=True)
+    sort_list = sorted(range(len(ranking)), key=ranking.__getitem__, reverse=True)
     n = 3
     sentence = ''
     for i in range(n):
-        sentence += '{}. '.format(sentence_list[sortList[i]])
+        sentence += '{}. '.format(sentence_list[sort_list[i]])
     return sentence
