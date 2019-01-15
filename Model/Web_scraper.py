@@ -22,5 +22,3 @@ class NewsScraper(object):
 
     def get_top_image(self):
         return self.article.top_image
-
-
