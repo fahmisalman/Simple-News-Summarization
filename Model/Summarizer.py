@@ -31,6 +31,7 @@ def fit(paragraph):
     pre = Preprocessing()
 
     sentence_list = sentence_split(paragraph)
+    print(sentence_list)
     data = []
     for i in range(len(sentence_list)):
         data.append(pre.stemming(pre.stopword_removal(pre.tokenization(pre.casefolding(sentence_list[i])))))
@@ -46,7 +47,7 @@ def fit(paragraph):
         ranking.append(temp)
 
     sort_list = sorted(range(len(ranking)), key=ranking.__getitem__, reverse=True)
-    n = 3
+    n = 1
     sentence = ''
     for i in range(n):
         sentence += '{}. '.format(sentence_list[sort_list[i]])
