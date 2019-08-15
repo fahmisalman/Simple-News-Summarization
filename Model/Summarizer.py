@@ -1,16 +1,12 @@
 from Model.Preprocessing import Preprocessing
+import nltk
 
 
 __author__ = "Fahmi Salman Nurfikri"
 
 
 def sentence_split(paragraph):
-    j = 0
-    data = []
-    for i in range(len(paragraph)):
-        if paragraph[i] == '.':
-            data += (list(filter(None, paragraph[j:i].rsplit('\n'))))
-            j = i + 1
+    data = nltk.sent_tokenize(paragraph)
     return data
 
 
@@ -31,7 +27,6 @@ def fit(paragraph):
     pre = Preprocessing()
 
     sentence_list = sentence_split(paragraph)
-    print(sentence_list)
     data = []
     for i in range(len(sentence_list)):
         data.append(pre.stemming(pre.stopword_removal(pre.tokenization(pre.casefolding(sentence_list[i])))))
@@ -47,7 +42,7 @@ def fit(paragraph):
         ranking.append(temp)
 
     sort_list = sorted(range(len(ranking)), key=ranking.__getitem__, reverse=True)
-    n = 1
+    n = 3
     sentence = ''
     for i in range(n):
         sentence += '{}. '.format(sentence_list[sort_list[i]])
