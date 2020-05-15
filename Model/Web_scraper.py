@@ -4,7 +4,7 @@ from newspaper import Article
 class NewsScraper(object):
 
     def __init__(self, url):
-        self.article = Article(url, language='id')
+        self.article = Article(url)
         self.article.download()
         self.article.parse()
 

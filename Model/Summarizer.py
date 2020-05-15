@@ -29,7 +29,7 @@ def fit(paragraph):
     sentence_list = sentence_split(paragraph)
     data = []
     for i in range(len(sentence_list)):
-        data.append(pre.stemming(pre.stopword_removal(pre.tokenization(pre.casefolding(sentence_list[i])))))
+        data.append(pre.stopword_removal(pre.tokenization(pre.casefolding(sentence_list[i]))))
     data = (list(filter(None, data)))
 
     wordfreq = word_freq(data)
@@ -42,7 +42,7 @@ def fit(paragraph):
         ranking.append(temp)
 
     sort_list = sorted(range(len(ranking)), key=ranking.__getitem__, reverse=True)
-    n = 3
+    n = 1
     sentence = ''
     for i in range(n):
         sentence += '{}. '.format(sentence_list[sort_list[i]])

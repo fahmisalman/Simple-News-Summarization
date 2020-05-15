@@ -1,4 +1,4 @@
-from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
+# from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 import re
 import os
 
@@ -6,8 +6,8 @@ import os
 class Preprocessing(object):
 
     def __init__(self):
-        self.factory = StemmerFactory()
-        self.stemmer = self.factory.create_stemmer()
+        # self.factory = StemmerFactory()
+        # self.stemmer = self.factory.create_stemmer()
         self.stopwords = [line.rstrip('\n\r') for line in open(os.path.join(os.getcwd(), 'Model/stopwords.txt'))]
 
     def casefolding(self, sentence):
@@ -25,7 +25,7 @@ class Preprocessing(object):
                 temp.append(token[i])
         return temp
 
-    def stemming(self, tokens):
-        for i in range(len(tokens)):
-            tokens[i] = self.stemmer.stem(tokens[i])
-        return tokens
+    # def stemming(self, tokens):
+    #     for i in range(len(tokens)):
+    #         tokens[i] = self.stemmer.stem(tokens[i])
+    #     return tokens
